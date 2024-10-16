@@ -214,7 +214,7 @@
         this.y = Game.c.height - this.height;
         this.movingLeft = false;
         this.movingRight = false;
-        this.speed = 10;
+        this.speed = 8;
         this.invincible = false;
         this.color = "white"  ;
     };
