@@ -6,6 +6,9 @@
 
     var bulletImage = new Image();
     bulletImage.src='Frame 1.png';
+    var ennemyBulletImage = new Image();
+    ennemyBulletImage.src='Frame 1 copy.png';
+    
     var playerImage = new Image();
     playerImage.src='logo.png';
 
@@ -26,7 +29,7 @@
             this.enemyIndex = 0;
             this.particleIndex = 0;
             this.maxParticles = 10;
-            this.maxEnemies = 6;
+            this.maxEnemies = 5;
             this.enemiesAlive = 0;
             this.currentFrame = 0;
             this.maxLives = 3;
@@ -387,8 +390,8 @@
     };
     
     EnemyBullet.prototype.draw = function(){
-        if (bulletImage.complete) {  // Ensure the image is loaded before drawing it
-            Game.ctx.drawImage(bulletImage, this.x, this.y, this.width, this.height);
+        if (ennemyBulletImage.complete) {  // Ensure the image is loaded before drawing it
+            Game.ctx.drawImage(ennemyBulletImage, this.x, this.y, this.width, this.height);
         }
     
     };
