@@ -174,7 +174,6 @@
       
         loop: function(){
             if(!Game.paused){
-                
                 Game.clear();
                 for(var i in Game.enemies){
                     var currentEnemy = Game.enemies[i];
@@ -223,7 +222,7 @@
         this.y = Game.c.height - this.height;
         this.movingLeft = false;
         this.movingRight = false;
-        this.speed = 8;
+        this.speed = 6;
         this.invincible = false;
         this.color = "white"  ;
     };
