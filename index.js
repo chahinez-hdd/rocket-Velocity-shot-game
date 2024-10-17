@@ -5,12 +5,14 @@
 (function(window){
 
     var bulletImage = new Image();
-    bulletImage.src='Frame 1.png';
+    bulletImage.src='56.png';
     var ennemyBulletImage = new Image();
-    ennemyBulletImage.src='Frame 1 copy.png';
+    ennemyBulletImage.src='59.png';
     
     var playerImage = new Image();
     playerImage.src='logo.png';
+
+    const shootSound = new Audio('laserSmall_003.ogg');
 
     var Game = {
     
@@ -77,6 +79,7 @@
                 if(!Game.player.invincible  && !Game.oneShot){
                     Game.player.shoot();
                     Game.oneShot = true;
+                    shootSound.play();
                 }
                 if(Game.isGameOver){
                     Game.init();
@@ -102,6 +105,8 @@
         buttonDown: function(e){
             if(e.keyCode === 32){
                 Game.shooting = true;
+                shootSound.play();
+                 
             }
             if(e.keyCode === 37 || e.keyCode === 65){
                 Game.player.movingLeft = true;
@@ -169,6 +174,7 @@
       
         loop: function(){
             if(!Game.paused){
+                
                 Game.clear();
                 for(var i in Game.enemies){
                     var currentEnemy = Game.enemies[i];
@@ -212,7 +218,7 @@
     
     var Player = function(){
         this.width = 80;
-        this.height = 40;
+        this.height = 60   ;
         this.x = Game.c.width/2 - this.width/2;
         this.y = Game.c.height - this.height;
         this.movingLeft = false;
@@ -273,7 +279,7 @@
     
     
     var Bullet = function(x){  
-        this.width = 20;
+        this.width = 40;
         this.height = 40;
         this.x = x;
         this.y = Game.c.height - 70;
@@ -378,7 +384,7 @@
     };
     
     var EnemyBullet = function(x, y, color){
-        this.width = 20;
+        this.width = 40;
         this.height = 40;
         this.x = x;
         this.y = y;
